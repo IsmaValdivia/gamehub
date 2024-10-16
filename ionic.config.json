@@ -1,0 +1,7 @@
+{
+  "name": "gamehub",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
