@@ -6,19 +6,19 @@ export const environment = {
   production: false,
   firebaseConfig: {
 
-    apiKey: "AIzaSyC0u4WQ2uoteDbR6CUIlK6b0frZRXTmBVU",
+    apiKey: "pepepoopoo",
   
-    authDomain: "gamehub-11059.firebaseapp.com",
+    authDomain: "asdsadsa",
   
-    projectId: "gamehub-11059",
+    projectId: "asdsadsa",
   
-    storageBucket: "gamehub-11059.appspot.com",
+    storageBucket: "asdsadsa",
   
     messagingSenderId: "661368870843",
   
-    appId: "1:661368870843:web:323826574c52c15c8cd69e",
+    appId: "peepooo",
   
-    measurementId: "G-7KHYCCC4E9"
+    measurementId: "aaaaaaaaa"
   
   }
 };
