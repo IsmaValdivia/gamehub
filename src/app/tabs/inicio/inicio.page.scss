@@ -1,0 +1,134 @@
+ion-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+ion-footer {
+    margin-top: auto; /* Asegura que el footer quede al final del contenido */
+    background-color: #f8f9fa;
+}
+    
+.custom-title {
+    font-size: 24px;
+    color: var(--ion-color-primary);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.custom-text {
+    font-size: 18px;
+    color: var(--ion-text-color);
+    text-align: center;
+}
+
+//para ordenar la imagen del top ventas y los botones
+.responsive {
+    background-color: #494949;
+    color: rgb(255, 255, 255);
+    margin: 3px;
+    display: grid;
+    }
+
+.img-recom{
+    height: 160px;
+    width: 120px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.text-recom{
+    color: #ffff;
+}
+
+
+.conteiner{
+    background-color: #2b2b29;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    transition: transform 0.2s ease; //transicion al cambiar el tamaño
+}
+
+
+.conteiner:hover{
+    //background-color: (#867d7d);
+    transform: scale(1.1); //cambia el tamaño
+}
+
+//esto para ordernar el nombre y precio del juego
+.centrar{
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 50%;
+}
+
+
+.plataforma{
+    background-color: #ffffff;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    border-radius: 5px;
+    float: right; 
+}
+.platform-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.platform-icons img {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.agotado {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.footer-info {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #5c5c5c; /* O el color que prefieras */
+}
+
+.descuento-badge {
+    background-color: red;
+    color: white;
+    padding: 2px 4px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+  
+.precio-descuento {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-right: 4px;
+}
+  
+.precio-original {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.9em;
+}
+  
+ion-item {
+    --inner-padding-top: 8px;
+    --inner-padding-bottom: 8px;
+}

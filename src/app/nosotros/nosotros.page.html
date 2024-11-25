@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sobre Nosotros</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="boton-derecha" (click)="volverInicio()">
+        Volver a Inicio
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Sección de equipo -->
+  <ion-grid>
+    <div>
+      <img src="assets/logo.png" alt="Logo de la aplicación">
+    </div>
+    <ion-row>
+      <!-- Integrante 1 -->
+      <ion-col size="6" size-md="3">
+        <ion-card>
+          <img src="assets/img//integrantes/1.jpg" alt="Integrante 1">
+          <ion-card-header>
+            <ion-card-title>Gabriel Bermar</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- Integrante 2 -->
+      <ion-col size="6" size-md="3">
+        <ion-card>
+          <img src="assets/img//integrantes/2.jpg" alt="Integrante 2">
+          <ion-card-header>
+            <ion-card-title>Ismael Valdivia</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- Integrante 3 -->
+      <ion-col size="6" size-md="3">
+        <ion-card>
+          <img src="assets/img//integrantes/3.jpg" alt="Integrante 3">
+          <ion-card-header>
+            <ion-card-title>Gabriel Fernandez</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <!-- Integrante 4 -->
+      <ion-col size="6" size-md="3">
+        <ion-card>
+          <img src="assets/img/integrantes/4.jpg" alt="Integrante 4">
+          <ion-card-header>
+            <ion-card-title>Benjamín Rojas</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Sección para párrafo sobre el equipo -->
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>Nuestra Misión</ion-card-title>
+          <br>
+          <p>
+            Somos un equipo dedicado a crear las mejores experiencias en el mundo de los videojuegos. 
+            Necesitamos buenas notas para obtener nuestro titulo, chambear y comprar miles de capibaras y alcohol.
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="12">
+      <h2>¡Únete a nuestro Discord!</h2>
+    </ion-col>
+    <ion-col size="12">
+      <ion-button size="large">
+        <ion-icon name="logo-discord"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

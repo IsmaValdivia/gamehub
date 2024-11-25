@@ -1,0 +1,64 @@
+ion-header {
+    background-color: #000; // Fondo negro para el header
+    color: #fff; // Texto blanco
+}
+
+ion-toolbar {
+    --background: #000; // Fondo negro
+    --color: #fff; // Texto blanco
+}
+
+ion-content {
+    --background: #111; // Fondo oscuro para el contenido
+    color: #fff; // Texto blanco
+}
+
+ion-card {
+    background-color: #333; // Fondo oscuro para las tarjetas
+    color: #fff; // Texto blanco
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+ion-card:hover {
+    transform: scale(1.05); // Efecto de hover para las tarjetas
+}
+
+ion-card-title {
+    text-align: center; // Centrar el nombre del integrante
+    font-size: 1.2em; // Aumentar el tamaño del texto
+}
+
+ion-avatar img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover; // Asegura que la imagen se ajuste bien en el avatar
+}
+
+ion-row {
+    justify-content: center; // Centrar las filas
+}
+
+ion-col {
+    display: flex;
+    justify-content: center;
+}
+
+ion-card-content {
+    font-size: 1em;
+    text-align: justify;
+    margin: 20px 0; // Márgenes para la sección de párrafo
+}
+
+p {
+    color: #ddd; // Texto gris claro
+    line-height: 1.5;
+}
+
+.boton-derecha {
+    float: right;
+}
+  

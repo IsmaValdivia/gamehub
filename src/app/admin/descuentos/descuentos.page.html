@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administrador de Descuentos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/admin/dashboard-admin">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <!-- Selección de Géneros -->
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>Géneros</ion-label>
+          <ion-select 
+            multiple="true" 
+            placeholder="Seleccionar Géneros" 
+            [(ngModel)]="generosSeleccionados">
+            <ion-select-option *ngFor="let genero of generos" [value]="genero">
+              {{ genero.nombre }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <!-- Botón para Aplicar Descuento -->
+      <ion-col size="12">
+        <ion-button expand="full" color="primary" (click)="aplicarDescuento()">
+          Aplicar Descuento
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <!-- Botón para Revertir Descuento -->
+      <ion-col size="12">
+        <ion-button expand="full" color="danger" (click)="revertirDescuento()">
+          Revertir Descuentos
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Mensaje de Confirmación -->
+    <ion-row *ngIf="mensajeConfirmacion">
+      <ion-col size="12">
+        <ion-text color="success">
+          <p>{{ mensajeConfirmacion }}</p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

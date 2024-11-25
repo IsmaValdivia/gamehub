@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Plataforma</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="boton-derecha" routerLink="/admin/plataformas/listar-plataformas">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="plataformaForm" (ngSubmit)="agregarPlataforma()">
+    <ion-item>
+      <ion-label position="floating">Nombre de la Plataforma</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="plataformaForm.invalid">Agregar Plataforma</ion-button>
+  </form>
+</ion-content>

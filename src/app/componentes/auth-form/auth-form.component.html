@@ -1,0 +1,19 @@
+<form [formGroup]="authForm" (ngSubmit)="submitForm()">
+  <ion-item>
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input formControlName="email" type="email" required></ion-input>
+  </ion-item>
+  <ion-item *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched">
+    <p>Email inválido</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input formControlName="password" type="password" required></ion-input>
+  </ion-item>
+  <ion-item *ngIf="authForm.get('password')?.invalid && authForm.get('password')?.touched">
+    <p>La contraseña debe tener al menos 6 caracteres</p>
+  </ion-item>
+
+  <ion-button expand="full" type="submit">{{ buttonText }}</ion-button>
+</form>

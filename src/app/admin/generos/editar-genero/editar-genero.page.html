@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Género</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/admin/generos/listar-generos">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Modificar Género</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nombre del Género</ion-label>
+        <ion-input [(ngModel)]="genero.nombre" placeholder="Ingrese el nuevo nombre"></ion-input>
+      </ion-item>
+      <ion-button expand="full" color="primary" (click)="actualizarGenero()">
+        Guardar Cambios
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

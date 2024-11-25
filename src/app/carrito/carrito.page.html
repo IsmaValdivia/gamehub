@@ -1,0 +1,54 @@
+<app-header [showBackButton]="true" title="Carrito"></app-header>
+
+<ion-content>
+  <!-- Lista de productos en el carrito -->
+  <ion-list *ngIf="carrito.length > 0; else carritoVacio">
+    <ion-item *ngFor="let item of carrito">
+      <ion-thumbnail slot="start">
+        <img [src]="item.imagen" alt="{{ item.nombre }}">
+      </ion-thumbnail>
+
+      <ion-label>
+        <h2>{{ item.nombre }}</h2>
+        <p>{{ item.precio | currency:'CLP':true }}</p>
+        <p>{{ item.plataforma }}</p>
+      </ion-label>
+
+      <!-- Botones para ajustar cantidad -->
+      <ion-button fill="clear" (click)="ajustarCantidad(item, false)">
+        <ion-icon name="remove-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-label>{{ item.cantidad }}</ion-label>
+      <ion-button fill="clear" (click)="ajustarCantidad(item, true)">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+
+      <!-- Botón para eliminar del carrito -->
+      <ion-button color="danger" fill="clear" (click)="eliminarDelCarrito(item.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Mensaje cuando el carrito está vacío -->
+  <ng-template #carritoVacio>
+    <div class="contenedor-carrito-vacio">
+      <ion-text class="ion-padding ion-text-center">
+        <h3>Tu carrito está vacío</h3>
+        <ion-icon name="sad-outline" size="large" style="color: rgb(124, 124, 124);"></ion-icon>
+      </ion-text>
+    </div>
+  </ng-template>
+  
+</ion-content>
+
+<!-- Footer con el total y acciones -->
+<ion-footer *ngIf="carrito.length > 0">
+  <ion-toolbar>
+    <ion-title>Total: {{ calcularTotal() | currency:'CLP':true }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="vaciarCarrito()">Vaciar Carrito</ion-button>
+      <ion-button color="primary">Ir a Pago</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

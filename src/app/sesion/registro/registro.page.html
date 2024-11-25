@@ -1,0 +1,54 @@
+<ion-content>
+  <ion-grid>
+    <!-- Fila del logo -->
+    <ion-row>
+      <ion-col size="12" class="ion-text-center logo" style="margin-top: 50px;">
+        <img src="assets/logo.png" alt="Logo de la aplicación">
+      </ion-col>
+      <ion-col size="12" class="ion-text-center logo">
+        <h1>Crear Cuenta</h1>
+      </ion-col>
+    </ion-row>
+
+    <!-- Formulario de registro centrado -->
+    <ion-row class="ion-justify-content-center" style="padding-top: 20px; margin: 10px;">
+      <ion-col size-md="6" size-sm="12" size-xs="12">
+        <form (ngSubmit)="registrar()">
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input [(ngModel)]="nombre" name="nombre" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Correo Electrónico</ion-label>
+            <ion-input type="email" [(ngModel)]="correo" name="correo" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="password" name="password" required minlength="6"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Teléfono</ion-label>
+            <ion-input type="tel" [(ngModel)]="telefono" name="telefono"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Dirección</ion-label>
+            <ion-input [(ngModel)]="direccion" name="direccion"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-checkbox [(ngModel)]="aceptarTerminos" name="aceptarTerminos"></ion-checkbox>
+            <a href="#">Acepto los términos y condiciones</a>
+          </ion-item>
+    
+          <ion-button expand="full" type="submit" style="margin-top: 20px;">Registrarse</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+
+    <!-- Botones auxiliares para registrar y recuperar contraseña -->
+    <ion-row class="ion-text-center" style="margin-bottom: 50px;">
+      <ion-col size="12" class="auxiliary-links">
+        <a [routerLink]="['/sesion/login']">¿Ya tienes cuenta? <br> ¡Inicia sesión!</a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,71 @@
+<app-header [showBackButton]="false" title="Tienda"></app-header>
+
+<ion-content>
+  
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="searchJuegos()" placeholder="Buscar juegos"></ion-searchbar>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Seleccione plataforma</ion-label>
+          <ion-select [(ngModel)]="selectedPlataforma" (ionChange)="searchJuegos()">
+            <ion-select-option *ngFor="let plataforma of plataformas" [value]="plataforma.nombre" >{{ plataforma.nombre }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col>
+        <ion-item>
+          <ion-label>Seleccione género</ion-label>
+          <ion-select [(ngModel)]="selectedGeneros" multiple="true" (ionChange)="searchJuegos()">
+            <ion-select-option *ngFor="let genero of generos" [value]="genero.nombre">{{ genero.nombre }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-button expand="full" color="primary" (click)="limpiarFiltros()">Limpiar filtros</ion-button>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-button expand="full" color="primary" (click)="irAdmin()">Administrador</ion-button>
+      </ion-col>
+
+      <ion-col size="6" size-md="6" size-lg="4" *ngFor="let juego of filteredProductos">
+        <ion-card>
+          <div class="card-image-container">
+            <img [src]="juego.imagen" alt="{{ juego.nombre }}" />
+            <div class="platform-icons">
+              <img *ngIf="juego.plataforma === 'ps5'" src="assets/img/plataformas/ps.svg" alt="PS5" />
+              <img *ngIf="juego.plataforma === 'xbox'" src="assets/img/plataformas/xbox.svg" alt="Xbox" />
+              <img *ngIf="juego.plataforma === 'switch'" src="assets/img/plataformas/switch.svg" alt="Switch" />
+              <img *ngIf="juego.plataforma === 'pc'" src="assets/img/plataformas/pc.svg" alt="PC" />
+            </div>
+            <div *ngIf="juego.stock === 0" class="agotado">Agotado</div>
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{ juego.nombre }}</ion-card-title>
+            <ion-card-subtitle *ngIf="juego.descuento">
+              <span class="descuento-badge">-{{ juego.descuento }}%</span>
+              <span class="precio-descuento">{{ getPrecioConDescuento(juego.precio, juego.descuento) | currency:'CLP' }}</span>
+              <span class="precio-original">{{ juego.precio | currency:'CLP' }}</span>
+            </ion-card-subtitle>
+            <ion-card-subtitle *ngIf="!juego.descuento">
+              {{ juego.precio | currency:'CLP' }}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button expand="full" fill="clear" (click)="agregarAlCarrito(juego)" [disabled]="juego.stock === 0">
+              Agregar al carrito
+            </ion-button>
+            <ion-button expand="full" fill="clear" (click)="agregarADeseados(juego)"> 
+              <ion-icon name="heart"></ion-icon>
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

@@ -1,0 +1,150 @@
+<app-header [showBackButton]="false" title="Inicio"></app-header>
+
+<ion-content>
+  <!-- Top 1 en ventas -->
+  <ion-grid *ngIf="topProducto">
+    <h2>Top 1 en ventas</h2>
+    <ion-row>
+      <ion-col class="responsive">
+        <ion-img 
+          [src]="topProducto.imagen"
+          alt="topProducto.nombre"
+        ></ion-img>
+        <div>
+          <p>{{ topProducto.nombre }}</p>
+          <p>
+            Precio:
+            <span *ngIf="topProducto.descuento" class="precio-descuento">{{ getPrecioConDescuento(topProducto.precio, topProducto.descuento) | currency:'CLP' }}</span>
+            <span *ngIf="topProducto.descuento" class="precio-original">{{ topProducto.precio | currency:'CLP' }}</span>
+            <span *ngIf="!topProducto.descuento">{{ topProducto.precio | currency:'CLP' }}</span>
+          </p>
+        </div>
+        
+        <div expand="full">
+          <ion-button expand="full" fill="clear" (click)="agregarAlCarrito(topProducto)">
+            Comprar ahora
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid style="background-color: rgb(138, 138, 138); margin-top: 20px; margin-bottom: 20px;">
+    <ion-row>
+      <ion-col ><ion-button size="large">Mis juegos</ion-button></ion-col>
+      <ion-col ><ion-button size="large" (click)="irAWishlist()">Lista de deseados</ion-button></ion-col>
+      <ion-col ><ion-button size="large" (click)="irAResenas()">Mis Reseñas</ion-button></ion-col> 
+    </ion-row>
+  </ion-grid>
+
+  <!-- Productos recomendados -->
+  <ion-grid>
+    <h2>Te recomendamos</h2>
+    <ion-row *ngFor="let juego of productosRecomendados">
+      <ion-col class="conteiner">
+        <ion-img class="img-recom"
+          [src]="juego.imagen"
+          alt="juego.nombre"
+        ></ion-img>
+        <div class="centrar">
+          <p class="text-recom">{{juego.nombre}}<br> 
+            <p>
+              Precio:
+              <span *ngIf="juego.descuento" class="precio-descuento">
+                {{ getPrecioConDescuento(juego.precio, juego.descuento) | currency:'CLP' }}
+              </span>
+              <span *ngIf="juego.descuento" class="precio-original">
+                {{ juego.precio | currency:'CLP' }}
+              </span>
+              <span *ngIf="!juego.descuento">
+                {{ juego.precio | currency:'CLP' }}
+              </span>
+            </p>
+          <!-- Mostrar íconos de plataforma -->
+          <div class="platform-icons">
+            <img *ngIf="juego.plataforma === 'ps5'" src="assets/img/plataformas/ps.svg" alt="PS5" />
+            <img *ngIf="juego.plataforma === 'xbox'" src="assets/img/plataformas/xbox.svg" alt="Xbox" />
+            <img *ngIf="juego.plataforma === 'switch'" src="assets/img/plataformas/switch.svg" alt="Switch" />
+            <img *ngIf="juego.plataforma === 'pc'" src="assets/img/plataformas/pc.svg" alt="PC" />
+          </div>
+          <div *ngIf="juego.stock === 0" class="agotado">Agotado</div>
+
+          <!-- Botones de acción -->
+          <div>
+            <ion-button expand="full" fill="clear" (click)="agregarAlCarrito(juego)" [disabled]="juego.stock === 0">
+              <ion-icon name="cart"></ion-icon>
+            </ion-button>
+          </div> 
+          <div>
+            <ion-button expand="full" fill="clear" (click)="agregarADeseados(juego)">
+              <ion-icon name="heart"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div expand="full">
+      <ion-button expand="full" fill="clear" (click)="irATienda()">
+        Ir a la tienda
+      </ion-button>
+    </div>
+  </ion-grid>
+
+  <ion-footer [translucent]="true">
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <h3>Información</h3>
+            <ion-list>
+              <ion-item lines="none">
+                <a routerLink="/nosotros">
+                  <ion-label>Sobre nosotros</ion-label>
+                </a>
+              </ion-item>
+              <ion-item lines="none">
+                <a routerLink="/contacto">
+                  <ion-label>Contacto</ion-label>
+                </a>
+              </ion-item>
+              <ion-item lines="none">
+                <a routerLink="/privacidad">
+                  <ion-label>Política de privacidad</ion-label>
+                </a>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+  
+          <ion-col size="4">
+            <h3>Encuéntranos</h3>
+            <ion-list>
+              <ion-item lines="none">
+                <a routerLink="/admin/sucursales/listar-sucursal">
+                  <ion-label>Sucursales</ion-label>
+                </a>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+  
+          <ion-col size="4">
+            <h3>Ayuda</h3>
+            <ion-list>
+              <ion-item lines="none">
+                <a routerLink="/faq">
+                  <ion-label>Preguntas frecuentes</ion-label>
+                </a>
+              </ion-item>
+              <ion-item lines="none">
+                <a routerLink="/terminos">
+                  <ion-label>Términos y condiciones</ion-label>
+                </a>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+  
+</ion-content>
+

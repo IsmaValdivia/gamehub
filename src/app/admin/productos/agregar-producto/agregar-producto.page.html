@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Producto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="boton-derecha" (click)="volverAdmin()">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+
+    <ion-item>
+      <ion-label position="floating">Nombre del Producto</ion-label>
+      <ion-input formControlName="nombre" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched">
+      Nombre es obligatorio.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Precio</ion-label>
+      <ion-input formControlName="precio" type="number"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched">
+      Precio debe ser un valor positivo.
+    </ion-note>
+
+    <ion-item>
+      <ion-label>Plataforma</ion-label>
+      <ion-select formControlName="plataforma">
+        <ion-select-option *ngFor="let plataforma of plataformas" [value]="plataforma">{{ plataforma }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-note color="danger" *ngIf="productoForm.get('plataforma')?.invalid && productoForm.get('plataforma')?.touched">
+      Selecciona una plataforma.
+    </ion-note>
+
+    <ion-item>
+      <ion-label>Género</ion-label>
+      <ion-select formControlName="genero" multiple="true">
+        <ion-select-option *ngFor="let genero of generos" [value]="genero">{{ genero }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-note color="danger" *ngIf="productoForm.get('genero')?.invalid && productoForm.get('genero')?.touched">
+      Selecciona al menos un género.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Stock</ion-label>
+      <ion-input formControlName="stock" type="number"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="productoForm.get('stock')?.invalid && productoForm.get('stock')?.touched">
+      El stock debe ser mayor o igual a 0.
+    </ion-note>
+
+    <ion-item>
+      <ion-label>Recomendado</ion-label>
+      <ion-checkbox formControlName="recomendado"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descuento (%)</ion-label>
+      <ion-input formControlName="descuento" type="number" min="0" max="100"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Desarrollador</ion-label>
+      <ion-input formControlName="desarrollador" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Publisher</ion-label>
+      <ion-input formControlName="publisher" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Seleccionar Imagen</ion-label>
+      <input type="file" (change)="subirImagen($event)" accept="image/*"/>
+    </ion-item>
+
+    <!-- Previsualización de la imagen actual -->
+    <ion-item *ngIf="imagenURL">
+      <ion-label>Imagen Actual</ion-label>
+      <ion-img [src]="imagenURL"></ion-img>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Agregar Producto</ion-button>
+  </form>
+</ion-content>

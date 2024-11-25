@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-grid>
+    <!-- Fila del logo -->
+    <ion-row>
+      <ion-col size="12" class="ion-text-center logo" style="margin-top: 50px;">
+        <img src="assets/logo.png" alt="Logo de la aplicación">
+      </ion-col>
+      <ion-col size="12" class="ion-text-center logo">
+        <h1>Iniciar Sesión</h1>
+      </ion-col>
+    </ion-row>
+
+    <!-- Formulario de inicio de sesión -->
+    <ion-row style="padding-top: 50px; margin: 10px;">
+      <ion-col size="12">
+        <app-auth-form buttonText="Iniciar Sesión" (formSubmit)="onLogin($event)"></app-auth-form>
+      </ion-col>
+    </ion-row>
+
+    <!-- Botones auxiliares para registrar y recuperar contraseña -->
+    <ion-row class="ion-text-center">
+      <ion-col size="12" class="auxiliary-links">
+        <a [routerLink]="['/sesion/register']">¿No tienes cuenta? ¡Regístrate!</a>
+      </ion-col>
+      <ion-col size="12" class="auxiliary-links">
+        <a [routerLink]="['/sesion/recover-pass']">¿Olvidaste tu contraseña?</a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

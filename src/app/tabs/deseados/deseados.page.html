@@ -1,0 +1,30 @@
+<app-header [showBackButton]="false" title="Deseados"></app-header>
+
+
+<ion-content>
+  <ion-list *ngIf="deseados.length > 0; else sinDeseados">
+    <ion-item *ngFor="let juego of deseados">
+      <ion-thumbnail slot="start">
+        <img [src]="juego.imagen" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ juego.nombre }}</h2>
+        <p>{{ juego.precio | currency }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button color="success" (click)="agregarAlCarrito(juego)">
+          Agregar al Carrito
+        </ion-button>
+        <ion-button color="danger" (click)="eliminarDeseado(juego.id!)">
+          Eliminar
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #sinDeseados>
+    <ion-text color="medium" class="ion-text-center">
+      <p>No tienes juegos en tu lista de deseados.</p>
+    </ion-text>
+  </ng-template>
+</ion-content>

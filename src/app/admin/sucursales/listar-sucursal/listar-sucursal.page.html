@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sucursales</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="boton-derecha" (click)="back()">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let sucursal of sucursales">
+      <ion-label>
+        <h2>{{ sucursal.nombre }}</h2>
+        <p>Correo: {{ sucursal.correo }}</p>
+        <p>Dirección: {{ sucursal.direccion }}</p>
+        <p>Teléfono: {{ sucursal.fono }}</p>
+        <ion-button fill="outline" color="primary" (click)="abrirEnGoogleMaps(sucursal.direccion)">
+          Cómo llegar
+        </ion-button>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button color="primary" [routerLink]="['/admin/sucursales/editar-sucursal', sucursal.id]">Editar</ion-button>
+        <ion-button *ngIf="sucursal.id" color="danger" (click)="eliminarSucursal(sucursal.id!)">Eliminar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/admin/sucursales/agregar-sucursal">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

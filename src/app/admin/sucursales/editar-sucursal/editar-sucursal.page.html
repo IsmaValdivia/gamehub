@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Sucursal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="boton-derecha" routerLink="/admin/sucursales/listar-sucursal">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="sucursalForm" (ngSubmit)="editarSucursal()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input formControlName="correo" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Dirección</ion-label>
+      <ion-input formControlName="direccion" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input formControlName="fono" type="tel"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="sucursalForm.invalid">
+      Guardar Cambios
+    </ion-button>
+  </form>
+</ion-content>

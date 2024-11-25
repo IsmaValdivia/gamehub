@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Plataformas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="boton-derecha" routerLink="/admin/dashboard-admin">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let plataforma of plataformas">
+      <ion-label>
+        {{ plataforma.nombre }}
+      </ion-label>
+      <ion-button color="primary" [routerLink]="['/admin/plataformas/editar-plataforma', plataforma.id]">
+        Editar
+      </ion-button>
+      <ion-button color="danger" (click)="confirmarEliminarPlataforma(plataforma.id!)">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-button expand="full" color="primary" routerLink="/admin/plataformas/agregar-plataforma">
+    Agregar Nueva Plataforma
+  </ion-button>
+  
+</ion-content>

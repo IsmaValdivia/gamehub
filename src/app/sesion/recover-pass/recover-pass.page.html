@@ -1,0 +1,32 @@
+
+<ion-content>
+  <ion-grid>
+    <!-- Fila del logo -->
+    <ion-row>
+      <ion-col size="12" class="ion-text-center logo" style="margin-top: 50px;">
+        <img src="assets/logo.png" alt="Logo de la aplicación">
+      </ion-col>
+      <ion-col size="12" class="ion-text-center logo">
+        <h1>Reestablecer contraseña</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="padding-top: 50px; margin: 10px;">
+      <ion-col size="12">
+        <form (ngSubmit)="recuperarClave()">
+          <ion-item>
+            <ion-label position="floating">Correo Electrónico</ion-label>
+            <ion-input [(ngModel)]="email" type="email" required></ion-input>
+          </ion-item>
+          <ion-button expand="block" type="submit">Enviar Enlace</ion-button>
+        </form>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" (click)="volverLogin()">
+          Volver
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+  

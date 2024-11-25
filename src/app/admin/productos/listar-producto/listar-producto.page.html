@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Juegos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="boton-derecha" routerLink="/admin/dashboard-admin">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <!-- Iterar sobre los productos -->
+    <ion-item *ngFor="let producto of productos">
+      <ion-thumbnail slot="start">
+        <!-- Mostrar la imagen del producto -->
+        <img [src]="producto.imagen || 'assets/default.png'" alt="Producto">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ producto.nombre }}</h2>
+        <p><strong>Precio: </strong> CLP {{ producto.precio | number:'1.0-0' }}</p>
+        <p *ngIf="producto.descuento"><strong>Descuento: </strong> {{ producto.descuento }}%</p>
+        <p><strong>Plataforma: </strong> {{ producto.plataforma | uppercase }}</p>
+        <p><strong>Género: </strong> {{ producto.genero.join(', ') || 'Sin definir' }}</p>
+        <p><strong>Stock: </strong> {{ producto.stock }}</p>
+        <p><strong>Recomendado: </strong> {{ producto.recomendado ? 'Sí' : 'No' }}</p>
+        <p *ngIf="producto.desarrollador"><strong>Desarrollador: </strong> {{ producto.desarrollador }}</p>
+        <p *ngIf="producto.publisher"><strong>Publisher: </strong> {{ producto.publisher }}</p>
+      </ion-label>
+
+      <!-- Botón para editar el producto -->
+      <ion-button color="primary" (click)="editarProducto(producto)">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+
+      <!-- Botón para eliminar el producto -->
+      <ion-button color="danger" (click)="eliminarProducto(producto.id, producto.imagen)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/admin/productos/agregar-producto">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

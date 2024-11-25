@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Género</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/admin/generos/listar-generos">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nuevo Género</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nombre del Género</ion-label>
+        <ion-input [(ngModel)]="nombre" placeholder="Ingrese el nombre del género"></ion-input>
+      </ion-item>
+      <ion-button expand="full" color="primary" (click)="agregarGenero()">
+        Agregar Género
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

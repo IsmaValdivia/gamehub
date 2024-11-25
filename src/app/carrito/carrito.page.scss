@@ -1,0 +1,43 @@
+ion-header {
+    background-color: #000;
+    color: #fff;
+}
+
+ion-toolbar {
+    --background: #000;
+    --color: #fff;
+}
+
+ion-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+}
+
+ion-thumbnail {
+    width: 60px;
+    height: 60px;
+}
+
+ion-button {
+    margin-left: 10px;
+}
+
+ion-col {
+    color: #fff;
+    text-align: center;
+}
+
+ion-label {
+    text-align: center;
+}
+
+.contenedor-carrito-vacio {
+    display: flex;
+    justify-content: center;  /* Centrar horizontalmente */
+    align-items: center;      /* Centrar verticalmente */
+    height: 100%;             /* Ocupar todo el alto del contenedor */
+    text-align: center;       /* Centrar el texto */
+}

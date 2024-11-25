@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Géneros</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="boton-derecha" routerLink="/admin/dashboard-admin">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let genero of generos">
+      <ion-label>
+        {{ genero.nombre }}
+      </ion-label>
+      <ion-button color="primary" [routerLink]="['/admin/generos/editar-genero', genero.id]">
+        Editar
+      </ion-button>
+      <ion-button color="danger" (click)="confirmarEliminarGenero(genero.id!)">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" color="primary" routerLink="/admin/generos/agregar-genero">
+    Agregar Nuevo Género
+  </ion-button>
+</ion-content>
